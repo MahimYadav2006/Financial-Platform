@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Data Intelligence | Dashboard — JarNox Assignment</title>
+    <meta name="description"
+        content="Interactive stock market visualization dashboard for NSE stocks. Part 3 of JarNox SWE Internship Assignment by Mahim Yadav.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <!-- Chart.js Date Adapter (for time axes) -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@1.3.1"></script>
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container"></div>
+
+    <div class="dashboard-wrapper">
+        <!-- ╔═══════════ SIDEBAR ═══════════╗ -->
+        <aside class="sidebar glass-panel">
+            <div class="sidebar-header">
+                <h2><i class="ph ph-chart-line-up"></i> StockPulse</h2>
+                <div class="search-box">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <input type="text" id="stock-search" placeholder="Search stocks..." autocomplete="off">
+                </div>
+            </div>
+
+            <div class="stock-list-container">
+                <div class="list-title">
+                    <span>Watchlist</span>
+                    <span id="stock-count" class="badge">0</span>
+                </div>
+                <ul id="stock-list" class="stock-list">
+                    <!-- Populated by JS -->
+                    <div class="loader-spinner"></div>
+                </ul>
+            </div>
+
+            <!-- Sector Performance Mini-Overview -->
+            <div class="sector-overview" id="sector-overview">
+                <h4><i class="ph ph-buildings"></i> Sectors</h4>
+                <div class="sector-bars" id="sector-bars">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </aside>
+
+        <!-- ╔═══════════ MAIN CONTENT ═══════════╗ -->
+        <main class="main-content">
+            <!-- Top Nav / Marquee -->
+            <header class="top-header glass-panel">
+                <div class="market-status">
+                    <div class="status-indicator live"></div>
+                    <span>Market Data</span>
+                </div>
+
+                <div class="top-movers" id="top-movers">
+                    <!-- Populated by JS -->
+                    <div class="mover-chip skeleton" style="width:120px;height:28px"></div>
+                    <div class="mover-chip skeleton" style="width:120px;height:28px"></div>
+                </div>
+            </header>
+
+            <!-- Dashboard Grid -->
+            <div class="content-grid">
+
+                <!-- ── Main Chart Area ── -->
+                <div class="chart-section glass-panel">
+                    <div class="chart-header">
+                        <div class="active-stock-info">
+                            <h1 id="active-symbol">---</h1>
+                            <span id="active-company" class="text-dim">Select a stock from the watchlist</span>
+                            <div class="active-price-box">
+                                <span id="active-price" class="price-huge">₹0.00</span>
+                                <span id="active-change" class="change-badge">0.00%</span>
+                                <span id="active-sector" class="sector-badge hidden"></span>
+                            </div>
+                        </div>
+
+                        <div class="chart-controls">
+                            <!-- Timeframe Filters -->
+                            <div class="toggle-group" id="timeframe-filters">
+                                <button class="toggle-btn active" data-days="30">1M</button>
+                                <button class="toggle-btn" data-days="90">3M</button>
+                                <button class="toggle-btn" data-days="180">6M</button>
+                                <button class="toggle-btn" data-days="365">1Y</button>
+                                <button class="toggle-btn" data-days="730">ALL</button>
+                            </div>
+
+                            <!-- Action Tools -->
+                            <div class="toolbar">
+                                <button id="btn-predict" class="tool-btn" title="AI Price Prediction (7 Days)">
+                                    <i class="ph ph-magic-wand"></i> Predict
+                                </button>
+                                <button id="btn-compare" class="tool-btn" title="Compare Two Stocks">
+                                    <i class="ph ph-scales"></i> Compare
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <canvas id="mainChart"></canvas>
+                        <div id="chart-loader" class="glass-overlay hidden">
+                            <div class="loader-spinner"></div>
+                            <span class="loading-text">Loading chart data...</span>
+                        </div>
+                    </div>
+
+                    <!-- Volume Bar Chart -->
+                    <div class="volume-container">
+                        <span class="volume-label">Volume</span>
+                        <canvas id="volumeChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- ── Insights Panel ── -->
+                <div class="insights-section glass-panel">
+                    <h3><i class="ph ph-lightning"></i> Market Intelligence</h3>
+
+                    <div class="insights-grid" id="insights-panel">
+                        <!-- Default state -->
+                        <div class="empty-state">
+                            <i class="ph ph-chart-polar"></i>
+                            <p>Select a stock from the watchlist to view deep analytics, risk profiles, and technical
+                                signals.</p>
+                        </div>
+                    </div>
+
+                    <!-- Market Heatmap (always visible) -->
+                    <div class="sector-overview" id="heatmap-section" style="margin-top: 1rem;">
+                        <h4><i class="ph ph-grid-four"></i> Market Heatmap</h4>
+                        <div class="heat-grid" id="heat-grid">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- ╔═══════════ COMPARISON MODAL ═══════════╗ -->
+    <div class="modal-backdrop hidden" id="compare-modal">
+        <div class="modal glass-panel">
+            <div class="modal-header">
+                <h3><i class="ph ph-scales"></i> Head-to-Head Comparison</h3>
+                <button id="close-compare" class="icon-btn"><i class="ph ph-x"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="compare-inputs">
+                    <div class="input-group">
+                        <label>Stock 1</label>
+                        <select id="compare-stock-1" disabled></select>
+                    </div>
+                    <div class="vs-circle">VS</div>
+                    <div class="input-group">
+                        <label>Stock 2</label>
+                        <select id="compare-stock-2"></select>
+                    </div>
+                </div>
+
+                <div id="compare-results" class="compare-results hidden">
+                    <div class="compare-scores" id="compare-scores"></div>
+                    <div class="verdict-box" id="compare-verdict"></div>
+                    <div class="chart-container compare-chart">
+                        <canvas id="compareChart"></canvas>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button id="btn-run-compare" class="btn-primary">
+                    <i class="ph ph-play-circle"></i> Run Analysis
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>
