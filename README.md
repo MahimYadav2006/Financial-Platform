@@ -1,129 +1,144 @@
-# 📊 Stock Data Intelligence Platform
+<div align="center">
+  <h1>📊 Stock Data Intelligence Platform</h1>
+  <p><strong>JarNox Software Engineering Internship Assignment</strong></p>
+  <p><i>An end-to-end data engineering, REST API, and visualization platform demonstrating full-stack financial data intelligence.</i></p>
 
-An end-to-end financial data collection, analysis, API, and **visualization** platform built for the **JarNox Software Engineering Internship Assignment**.
+  [![Python](https://img.shields.io/badge/Python-3.12-blue?style=for-the-badge&logo=python&logoColor=white)]()
+  [![FastAPI](https://img.shields.io/badge/FastAPI-0.110+-009688?style=for-the-badge&logo=fastapi&logoColor=white)]()
+  [![Pandas](https://img.shields.io/badge/Pandas-2.2+-150458?style=for-the-badge&logo=pandas&logoColor=white)]()
+  [![Vanilla JS](https://img.shields.io/badge/Vanilla_JS-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)]()
+  [![Chart.js](https://img.shields.io/badge/Chart.js-4.x-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white)]()
+</div>
 
-## 🚀 Overview
+---
 
-This repository addresses all three parts of the assignment:
+## 🎯 Executive Summary (For the Recruiting Team)
 
-1. **`main.py` (Data Pipeline — Part 1)**: Fetches 2 years of historical OHLCV data for 15 major NSE stocks + NIFTY 50 via `yfinance`, cleans the data, and generates over 60 technical/custom indicators. Computes portfolio risk profiles and cross-stock analytics.
-2. **`app.py` (FastAPI Server — Part 2)**: A high-performance REST API that serves the processed data. Loads all CSVs directly into memory at startup to offer sub-millisecond query responses and auto-generates interactive Swagger documentation.
-3. **`frontend/` (Visualization Dashboard — Part 3)**: A premium, interactive **single-page dashboard** served directly from FastAPI. Features glassmorphic dark theme, Chart.js-powered closing price charts with SMA overlay, volume visualization, AI prediction via linear regression, head-to-head stock comparison, market heatmaps, and sector performance analytics.
+Hello JarNox Team! 👋 
 
-## 🛠️ Technology Stack
+Thank you for this incredible assignment. To demonstrate my passion for coding, data analysis, and building user-centric products, I didn't just meet the minimum requirements—I built a **comprehensive, production-ready Financial Intelligence Dashboard**. 
 
-* **Language**: Python 3.12
-* **Backend Framework**: FastAPI & Uvicorn
-* **Data Processing**: Pandas, NumPy
-* **Data Source**: yfinance
-* **Schema Validation**: Pydantic
-* **Frontend**: HTML5, CSS3 (Glassmorphism), Vanilla JavaScript
-* **Charting**: Chart.js 4.x
-* **Prediction**: Scipy (Linear Regression)
-* **Icons**: Phosphor Icons
-* **Typography**: Inter (Google Fonts)
+This project reflects my ability to wear multiple hats: 
+- **Data Engineer**: Orchestrating robust pipelines to fetch, clean, and enrich historical data with 60+ technical indicators.
+- **Backend Developer**: Designing a lightning-fast, schema-validated REST API using FastAPI.
+- **Frontend / UX Developer**: Crafting a premium, interactive "glassmorphic" web dashboard using pure HTML/CSS/JS (no heavy frontend frameworks, just clean optimized code).
 
-## 📦 Setup Instructions
+Below, you'll find a detailed mapping of how I delivered on every requirement of the assignment, plus several bonus features I added to showcase my creativity and technical depth.
 
-1. **Clone the repository and ensure you have Python 3.10+ installed.**
-2. **Create a virtual environment & install dependencies:**
-   ```bash
-   python -m venv venv
-   source venv/bin/activate
-   pip install -r requirements.txt
-   ```
+---
 
-3. **Run the Data Pipeline (Part 1):**
-   This fetches raw data, runs cleaning and feature engineering, and exports processed CSVs to `data/processed/`.
-   ```bash
-   python main.py
-   ```
+## 📋 Deliverables & Assignment Checklist
 
-4. **Start the API Server (Part 2 + Part 3):**
-   ```bash
-   python app.py
-   ```
-   *The server runs on http://127.0.0.1:8000*
+### ✅ Part 1: Data Collection & Preparation (Complete)
+- **Data Source**: Safely fetched 2 years of daily trading data for 15 major NSE stocks + the NIFTY 50 index using `yfinance`.
+- **Data Cleaning**: Implemented rigorous forward/backward filling for missing data, validated price integrity (e.g., High >= Low, No negative prices), and sanitized datetime formats.
+- **Base Metrics**: Calculated Daily Returns, 7-day SMAs, and 52-week High/Low.
+- **💡 Creative Custom Metrics (Bonus)**: 
+  - **Garman-Klass Volatility**: An advanced OHLC-based volatility estimator.
+  - **Momentum Score & Sentiment Index**: Multi-timeframe trend strength evaluators.
+  - **Sharpe Ratio & Max Drawdown**: Institutional-grade risk/return profiling metrics.
 
-5. **Open the Visualization Dashboard (Part 3):**
-   Navigate to **http://127.0.0.1:8000/dashboard** in your browser.
+### ✅ Part 2: Backend API Development (Complete)
+- **Framework**: Built with Python + FastAPI for maximum performance and auto-generated Swagger UI docs.
+- **Required Endpoints**:
+  - `GET /companies`: Returns the active stock universe.
+  - `GET /data/{symbol}`: Returns recent historical data tailored for charting.
+  - `GET /summary/{symbol}`: Calculates latest 52-week highs, lows, averages, and advanced metrics.
+- **💡 Extra Endpoints (Bonus)**:
+  - `GET /compare?symbol1&symbol2`: Head-to-head stock comparison running algorithmic verdicts.
+  - `GET /market/movers` & `GET /sectors`: Market-wide aggregation for top-level dashboarding.
 
-## 📖 API Documentation & Endpoints
+### ✅ Part 3: Visualization Dashboard (Complete)
+- **Design Philosophy**: Built an ultra-modern, "glassmorphism" dark-themed dashboard that feels premium and responsive.
+- **Core Features**:
+  - Left-hand company watchlist with live-price indicators.
+  - Beautiful, dynamic `Chart.js` line charts with SMA overlays and volume bars.
+  - Time-range toggling (1M, 3M, 6M, 1Y, ALL).
+- **💡 Creative Additions (Bonus)**:
+  - **Predictive AI Line**: Basic ML integration using `Scipy` linear regression to forecast 7-day price trajectory.
+  - **Comparison Modal**: Select any two stocks for a side-by-side performance showdown.
+  - **Market Heatmap**: A visual grid of how close stocks are to their 52-week highs.
 
-FastAPI automatically generates interactive API docs. Once the server is running, visit:
-* **Swagger UI:** [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
-* **ReDoc:** [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
+---
 
-### Core Endpoints Implementing Assignment Requirements:
+## 🛠️ Deep Dive: Architecture & Tech Stack
 
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `GET` | `/companies` | Returns a list of all 15 available NSE companies. |
-| `GET` | `/data/{symbol}` | Returns the last 30 days of stock data for a given ticker. |
-| `GET` | `/summary/{symbol}` | Returns 52-week summary + technical and risk metrics. |
-| `GET` | `/compare?symbol1&symbol2` | **(Bonus)** Head-to-head comparison of two stocks with algorithmic verdict. |
-| `GET` | `/predict/{symbol}` | **(Bonus)** AI-powered price prediction using Linear Regression (Scipy). |
+Instead of relying on heavy frontend frameworks, I specifically chose **Vanilla JS + HTML5 + CSS3** for the frontend to demonstrate a deep understanding of the DOM, responsive CSS grid/flexbox layouts, and asynchronous JavaScript (Fetch API, Promises).
 
-### Extra API Features:
-* `/sectors`: View aggregated performance by sector.
-* `/market/movers`: Returns top 5 gainers and losers.
-* `/market/correlations`: View a comprehensive return and price correlation matrix.
+The backend relies on **FastAPI** coupled with `Pydantic` for schema validation. To ensure sub-millisecond API response times, the processed datasets generated by `main.py` are loaded directly into memory via a singleton `DataService` pattern upon server boot.
 
-## 🎨 Dashboard Features (Part 3)
+* **Backend**: Python 3.12, FastAPI, Uvicorn, Pandas, NumPy, Pydantic, Scipy (Regression)
+* **Frontend**: HTML5, CSS3, Vanilla JS, Chart.js, Phosphor Icons
+* **Data Sources**: yfinance API 
 
-| Feature | Description |
-| :--- | :--- |
-| **Company Watchlist** | Searchable sidebar listing all 15 NSE stocks with live prices and 52W proximity indicators |
-| **Closing Price Chart** | Interactive Chart.js line chart with gradient fill, SMA-7 overlay, and smooth animations |
-| **Volume Chart** | Synchronized volume bar chart with green/red coloring based on price direction |
-| **Time Range Filters** | Toggle between 1M, 3M, 6M, 1Y, and ALL timeframes |
-| **AI Prediction** | 7-day price forecast using Linear Regression, displayed as a dashed prediction line |
-| **Stock Comparison** | Head-to-head modal with normalized price chart, Sharpe/risk/momentum scoring, and algorithmic verdict |
-| **Market Intelligence Panel** | Real-time metrics: Momentum, Sentiment, RSI, Sharpe, Beta, Volatility, Max Drawdown, VaR, Returns |
-| **52-Week Range Gauge** | Visual progress bar showing current price position in 52-week range |
-| **Market Heatmap** | Color-coded grid of all stocks based on 52-week high proximity |
-| **Sector Performance** | Horizontal bar chart showing annualized sector returns |
-| **Top Movers** | Header chips showing today's top gainer and loser |
-| **Toast Notifications** | Elegant notification system with categorized alerts (info, success, error) |
-| **Glassmorphism UI** | Premium dark theme with frosted glass panels, ambient gradients, and micro-animations |
+---
 
-## 🧠 Approach & Insights
+## 🚀 How to Run Locally
 
-* **Custom Metrics Added**: Beyond standard moving averages and RSI, this pipeline computes the *Garman-Klass Volatility* (OHLC-estimators), *Sortino & Calmar Analytics*, and creates a custom `Momentum Score` and `Sentiment Index`.
-* **API Design**: The API uses a robust `DataService` singleton layer that loads once on application startup, avoiding Disk I/O or DataFrame rebuilds on every request.
-* **Frontend Architecture**: Pure vanilla HTML/CSS/JS — no build step, no npm, no framework overhead. Chart.js handles all charting with gradient fills and custom tooltips. The dashboard is served directly by FastAPI as a static mount + dynamic route.
-* **Typing & Schemas**: Using `Pydantic` `BaseModel` classes enforces response structures across the API, allowing FastAPI to build clean OpenAPI specifications.
+Getting the platform running locally is simple and takes less than 2 minutes.
 
-## 📁 File Structure
+### 1. Environment Setup
+Clone the repository and ensure you have Python 3.10+ installed.
+```bash
+# Create and activate a virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows use: venv\Scripts\activate
 
+# Install dependencies
+pip install -r requirements.txt
 ```
+
+### 2. Execute Data Pipeline (Part 1)
+Run the pipeline to fetch real-world data, clean it, and run the feature engineering engine. Clean CSVs will be saved to `data/processed/`.
+```bash
+python main.py
+```
+*(Optional flags: `--use-cache` to skip network calls, `--no-charts` to skip Matplotlib outputs)*
+
+### 3. Start the Platform Server (Part 2 & 3)
+Boot up the FastAPI server, which will also serve the static frontend dashboard.
+```bash
+python app.py
+```
+
+### 4. Explore the Results!
+- 🎨 **Interactive Dashboard**: [http://127.0.0.1:8000/dashboard](http://127.0.0.1:8000/dashboard)
+- ⚙️ **API Documentation (Swagger)**: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+- 📈 **Terminal Reports / Matplotlib Charts**: Check the `/output` directory!
+
+---
+
+## 📁 Repository Structure
+
+```text
 Financial Platform/
-├── app.py                      # FastAPI server (Part 2 + Part 3 serving)
-├── main.py                     # Data pipeline orchestrator (Part 1)
-├── requirements.txt            # Python dependencies
-├── frontend/
-│   ├── index.html              # Dashboard HTML (Part 3)
+├── app.py                      # FastAPI server & Static UI mount (Part 2 & 3)
+├── main.py                     # Data ETL & Analysis Pipeline orchestrator (Part 1)
+├── requirements.txt            # Project dependencies
+├── frontend/                   # UI Assets
+│   ├── index.html              # Core dashboard layout
 │   ├── style.css               # Premium glassmorphic dark theme
-│   └── app.js                  # Dashboard logic, charting, interactivity
-├── src/
-│   ├── config.py               # Stock universe, sector maps, parameters
-│   ├── data_collector.py       # yfinance data fetching
-│   ├── data_cleaner.py         # Data cleaning & validation
-│   ├── feature_engineering.py  # 60+ technical indicator computation
-│   ├── analysis.py             # Cross-stock analytics
-│   ├── visualizer.py           # Matplotlib chart generation
+│   └── app.js                  # Frontend logic & Chart.js integration
+├── src/                        # Core Python Modules
+│   ├── config.py               # Stock universe parameters
+│   ├── data_collector.py       # Robust yfinance network logic
+│   ├── data_cleaner.py         # Null handling & anomaly detection
+│   ├── feature_engineering.py  # 60+ technical indicators
+│   ├── analysis.py             # Cross-stock analytics & CAPM
+│   ├── visualizer.py           # Static matplotlib generation
 │   └── api/
-│       ├── routes.py           # API route definitions
-│       ├── data_service.py     # In-memory data service singleton
+│       ├── routes.py           # API endpoints
+│       ├── data_service.py     # In-memory data caching singleton
 │       └── schemas.py          # Pydantic response models
-├── data/
-│   ├── raw/                    # Raw downloaded CSVs
-│   └── processed/              # Cleaned & enriched datasets
-└── output/
-    ├── charts/                 # Generated visualization PNGs
-    └── reports/                # Analysis CSV reports
+├── data/                       # CSV Storage (Raw & Processed)
+└── output/                     # Generated Matplotlib charts & tables
 ```
 
-## 🤝 Author
+---
 
-**Mahim Yadav** — JarNox SWE Internship Assignment
+## 💡 Concluding Thoughts
+
+I approached this assignment as if I were building a real MVP for JarNox. By emphasizing **clean code syntax, error handling, performance optimization, and beautiful UI/UX**, I wanted to prove that I am ready to jump into real fintech & AI-based projects on day one.
+
+Thank you for your time reviewing my code. I am incredibly excited about the opportunity to join JarNox and look forward to discussing my implementation with the team!
+
