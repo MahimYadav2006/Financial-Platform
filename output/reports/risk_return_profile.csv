@@ -1,0 +1,15 @@
+,Symbol,Company,Sector,Annual_Return_Pct,Annual_Volatility_Pct,Sharpe_Ratio,Sortino_Ratio,Max_Drawdown_Pct,Calmar_Ratio,VaR_95_Daily_Pct,Skewness,Kurtosis
+7,SBIN,State Bank of India,Banking & Finance,21.39,25.33,0.588,0.748,-23.94,0.893,-2.0,-0.911,16.358
+8,BHARTIARTL,Bharti Airtel,Telecommunications,18.04,21.23,0.543,0.802,-17.61,1.024,-2.09,-0.051,2.217
+11,BAJFINANCE,Bajaj Finance,Banking & Finance,16.86,28.17,0.368,0.536,-26.74,0.63,-2.73,-0.004,2.719
+4,ICICIBANK,ICICI Bank,Banking & Finance,13.5,19.7,0.355,0.523,-18.99,0.711,-1.87,-0.039,4.088
+10,SUNPHARMA,Sun Pharmaceutical,Pharmaceuticals,7.91,19.56,0.072,0.103,-19.78,0.4,-2.08,-0.184,1.303
+2,HDFCBANK,HDFC Bank,Banking & Finance,5.01,19.88,-0.075,-0.104,-27.78,0.18,-1.93,-0.243,2.895
+5,HINDUNILVR,Hindustan Unilever,FMCG,4.43,20.52,-0.101,-0.158,-32.24,0.138,-1.9,0.257,3.24
+12,MARUTI,Maruti Suzuki,Automobile,3.9,22.82,-0.114,-0.177,-28.83,0.135,-2.21,0.666,4.986
+13,ADANIENT,Adani Enterprises,Conglomerate / Infrastructure,-6.96,40.66,-0.331,-0.393,-51.75,-0.135,-3.28,-1.674,20.158
+9,WIPRO,Wipro,Information Technology,-2.66,27.13,-0.338,-0.452,-41.41,-0.064,-2.8,-0.403,3.337
+0,RELIANCE,Reliance Industries,Oil & Gas / Conglomerate,-1.18,21.6,-0.356,-0.513,-27.42,-0.043,-2.06,-0.124,3.119
+3,INFY,Infosys,Information Technology,-3.45,24.91,-0.4,-0.572,-38.95,-0.089,-2.5,0.001,3.089
+6,ITC,ITC Limited,FMCG,-13.57,19.14,-1.049,-1.401,-42.84,-0.317,-1.78,-0.736,9.951
+1,TCS,Tata Consultancy Services,Information Technology,-19.23,21.61,-1.191,-1.72,-48.26,-0.398,-2.1,0.096,3.809

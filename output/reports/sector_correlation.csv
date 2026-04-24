@@ -1,0 +1,9 @@
+,Oil & Gas / Conglomerate,Information Technology,Banking & Finance,FMCG,Telecommunications,Pharmaceuticals,Automobile,Conglomerate / Infrastructure
+Oil & Gas / Conglomerate,1.0,0.313,0.514,0.293,0.39,0.276,0.365,0.433
+Information Technology,0.313,1.0,0.303,0.185,0.299,0.214,0.212,0.206
+Banking & Finance,0.514,0.303,1.0,0.273,0.41,0.213,0.448,0.576
+FMCG,0.293,0.185,0.273,1.0,0.257,0.161,0.3,0.181
+Telecommunications,0.39,0.299,0.41,0.257,1.0,0.313,0.339,0.312
+Pharmaceuticals,0.276,0.214,0.213,0.161,0.313,1.0,0.213,0.255
+Automobile,0.365,0.212,0.448,0.3,0.339,0.213,1.0,0.354
+Conglomerate / Infrastructure,0.433,0.206,0.576,0.181,0.312,0.255,0.354,1.0

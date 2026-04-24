@@ -1,0 +1,15 @@
+,Symbol,Company,Sector,Beta,Alpha_Annual,R_Squared,Classification
+13,ADANIENT,Adani Enterprises,Conglomerate / Infrastructure,1.7995,-11.51,0.3927,Aggressive
+11,BAJFINANCE,Bajaj Finance,Banking & Finance,1.2338,11.74,0.3845,Aggressive
+7,SBIN,State Bank of India,Banking & Finance,1.1935,16.24,0.4453,Moderate
+0,RELIANCE,Reliance Industries,Oil & Gas / Conglomerate,1.0662,-6.52,0.4884,Moderate
+2,HDFCBANK,HDFC Bank,Banking & Finance,1.0102,-0.38,0.5176,Moderate
+4,ICICIBANK,ICICI Bank,Banking & Finance,0.9441,8.06,0.4607,Moderate
+12,MARUTI,Maruti Suzuki,Automobile,0.8956,-1.61,0.3088,Moderate
+9,WIPRO,Wipro,Information Technology,0.8792,-8.2,0.2106,Moderate
+8,BHARTIARTL,Bharti Airtel,Telecommunications,0.848,12.5,0.3199,Moderate
+3,INFY,Infosys,Information Technology,0.8135,-9.07,0.2139,Moderate
+1,TCS,Tata Consultancy Services,Information Technology,0.705,-25.0,0.2134,Defensive
+6,ITC,ITC Limited,FMCG,0.6103,-19.43,0.204,Defensive
+10,SUNPHARMA,Sun Pharmaceutical,Pharmaceuticals,0.5258,2.0,0.145,Defensive
+5,HINDUNILVR,Hindustan Unilever,FMCG,0.3914,-1.63,0.073,Defensive

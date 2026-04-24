@@ -1,0 +1,15 @@
+,Symbol,Company,Sector,Latest_Close,52W_High,52W_Low,Pct_From_52W_High,RSI,Sentiment_Index,Momentum_Score,GK_Volatility,Rolling_Sharpe,Trend_Strength,Drawdown_Pct,RSI_Status,Sentiment_Status,Money_Flow
+13,ADANIENT,Adani Enterprises,Conglomerate / Infrastructure,2260.8,2695.0,1753.0,-16.11,69.39,72.94,86.23,0.37,1.57,50.58,-37.98,Strong,Greed,Accumulation
+11,BAJFINANCE,Bajaj Finance,Banking & Finance,934.75,1102.5,787.9,-15.22,57.32,60.88,56.47,0.33,-0.43,50.59,-14.57,Strong,Greed,Accumulation
+8,BHARTIARTL,Bharti Airtel,Telecommunications,1829.0,2174.5,1746.9,-15.89,44.89,44.78,-29.68,0.22,-1.81,30.43,-15.43,Weak,Neutral,Distribution
+2,HDFCBANK,HDFC Bank,Banking & Finance,799.9,1020.5,726.65,-21.62,47.94,43.36,-6.51,0.26,-1.93,37.5,-21.03,Neutral,Neutral,Accumulation
+5,HINDUNILVR,Hindustan Unilever,FMCG,2368.8,2750.0,2022.5,-13.86,70.12,73.42,80.0,0.27,1.39,76.22,-21.78,Overbought,Greed,Accumulation
+4,ICICIBANK,ICICI Bank,Banking & Finance,1367.6,1500.0,1187.6,-8.83,60.83,61.3,65.99,0.23,0.15,50.88,-8.13,Strong,Greed,Accumulation
+3,INFY,Infosys,Information Technology,1268.6,1728.0,1215.1,-26.59,41.64,44.56,-41.31,0.26,-0.98,44.2,-36.56,Weak,Neutral,Distribution
+6,ITC,ITC Limited,FMCG,305.5,444.2,287.0,-31.22,51.85,56.17,45.67,0.19,-0.98,53.18,-39.31,Neutral,Neutral,Distribution
+12,MARUTI,Maruti Suzuki,Automobile,13337.0,17370.0,11289.0,-23.22,49.82,50.47,12.58,0.26,-1.72,44.24,-22.87,Neutral,Neutral,Distribution
+0,RELIANCE,Reliance Industries,Oil & Gas / Conglomerate,1362.1,1611.8,1227.6,-15.49,49.37,33.83,16.27,0.2,-0.72,39.16,-14.92,Neutral,Fear,Accumulation
+7,SBIN,State Bank of India,Banking & Finance,1103.3,1234.7,755.5,-10.64,56.92,48.9,42.42,0.29,-1.44,50.5,-10.14,Strong,Neutral,Accumulation
+10,SUNPHARMA,Sun Pharmaceutical,Pharmaceuticals,1669.8,1851.2,1548.0,-9.8,40.01,26.02,-36.07,0.27,-2.8,48.37,-14.31,Weak,Fear,Distribution
+1,TCS,Tata Consultancy Services,Information Technology,2538.5,3630.5,2346.2,-30.08,50.02,55.09,7.7,0.23,-0.62,41.99,-44.25,Neutral,Neutral,Accumulation
+9,WIPRO,Wipro,Information Technology,204.0,273.1,186.5,-25.3,52.37,59.8,-3.02,0.23,1.18,40.42,-36.27,Neutral,Neutral,Accumulation

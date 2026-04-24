@@ -21,10 +21,6 @@ env/
 # ──────────────────────────────────────────────
 # Data & Output (generated at runtime)
 # ──────────────────────────────────────────────
-data/raw/
-data/processed/
-output/charts/
-output/reports/
 
 # ──────────────────────────────────────────────
 # Logs
